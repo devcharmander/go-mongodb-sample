@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package timetable;
+
+option go_package=".;timetablepb";
+
+message Habit{
+    string name = 1;
+    map<int32,bool> track = 2;
+    string reward = 3;
+    google.protobuf.Timestamp startdate = 4;
+}
+
+message HabitRequest{
+    Habit habit = 1;
+}
+
+message HabitResponse{
+    bool status = 1;
+}
+
+service TimetableService{
+    rpc AddHabit(HabitRequest) returns (HabitResponse){};
+}

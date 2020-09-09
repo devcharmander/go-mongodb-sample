@@ -1,0 +1,10 @@
+db.createUser(
+    {
+        user:"surya",
+        pwd:"surya",
+        roles:[{
+            role:"dbOwner",
+            db:"journal"
+        }]
+    }
+)
